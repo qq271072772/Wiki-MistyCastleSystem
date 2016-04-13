@@ -6786,13 +6786,13 @@ very-muted-foreground: #888888</pre>
 <div created="20160209045017992" creator="Shiro" modified="20160209073611840" modifier="Shiro" title="$:/state/plugin-info--896887961-$:/plugins/tongerner/ro">
 <pre>no</pre>
 </div>
-<div created="20160209015451027" creator="Shiro" modified="20160307015838762" modifier="Shiro" title="$:/state/showeditpreview">
+<div created="20160209015451027" creator="Shiro" modified="20160413054846035" modifier="Shiro" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
 <div created="20160209014827419" modified="20160209014913382" title="$:/state/ShowPaletteEditor">
 <pre>yes</pre>
 </div>
-<div created="20160209015542327" creator="Shiro" modified="20160321074149494" modifier="Shiro" title="$:/state/sidebar">
+<div created="20160209015542327" creator="Shiro" modified="20160413055654850" modifier="Shiro" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20160209014747195" creator="Shiro" modified="20160210005405758" modifier="Shiro" title="$:/state/tab--1498284803">
@@ -6807,7 +6807,7 @@ very-muted-foreground: #888888</pre>
 <div created="20160209014750760" modified="20160209021739825" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
-<div created="20160229083127879" creator="Shiro" modified="20160331053250699" modifier="Shiro" title="$:/state/tab--489055039">
+<div created="20160229083127879" creator="Shiro" modified="20160413012855919" modifier="Shiro" title="$:/state/tab--489055039">
 <pre>Distortion</pre>
 </div>
 <div created="20160209044652901" creator="Shiro" modified="20160209073913284" modifier="Shiro" title="$:/state/tab--86143343">
@@ -6837,7 +6837,7 @@ very-muted-foreground: #888888</pre>
 <div created="20160209040249610" creator="q" modified="20160209042828053" modifier="shiro" title="$:/status/UserName">
 <pre>Shiro</pre>
 </div>
-<div list="Navigation MistyCastleSystem EffectType InvertedReflection Distortion" title="$:/StoryList">
+<div list="Navigation MistyCastleSystem EffectType Distortion" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160209014747195" modified="20160209014747195" title="$:/temp/advancedsearch">
@@ -7291,7 +7291,7 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 <div created="20160209014800726" creator="Shiro" modified="20160209064741114" modifier="Shiro" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20160210005127620" creator="Shiro" modified="20160331053327919" modifier="Shiro" tags="Title2" title="Distortion">
+<div created="20160210005127620" creator="Shiro" modified="20160413055641853" modifier="Shiro" tags="Title2" title="Distortion">
 <pre>!!·Examples
 &gt;&lt;video width=&quot;320&quot; height=&quot;180&quot; src=&quot;file:.\Videos\Distortion1.MOV&quot; controls&gt; &lt;/video&gt;
 &gt;&lt;video width=&quot;320&quot; height=&quot;180&quot; src=&quot;file:.\Videos\Distortion2.MOV&quot; controls&gt; &lt;/video&gt;
@@ -7300,13 +7300,22 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 #&lt;font size=3&gt;Unity 3D Anoxemia Heat Distort Tutorial&lt;/font&gt;
 #*http://kostiantyn-dvornik.blogspot.jp/2014/10/unity-3d-anoxemia-heat-distort-tutorial.html
 !!·Problems
-&gt;1.The offset exceeded the grabpass texture's margin.
-&gt;Solution:Add &quot;ease factor&quot; which would be smaller at the margin.
+&gt;''[Problem]''The offset exceeded the grabpass texture's margin.
+&gt;''[Solution]''Add &quot;Ease Factor&quot; which would be smaller at the margin.
+&gt;''[Formula]''
+&gt;easeFactorX = min(texcoord.x,1 - texcoord.x)
+&gt;easeFactorX = (texcoord.x&gt;0.5 &amp;&amp; refractionX&gt;0) || (texcoord.x&lt;0.5 &amp;&amp; refractionX&lt;0) ? easeFactorX : 0.5
+&gt;easeFactorY = min(texcoord.y, 1 - texcoord.y)
+&gt;easeFactorY = (texcoord.y&gt;0.5 &amp;&amp; refractionY&gt;0) || (texcoord.y&lt;0.5 &amp;&amp; refractionY&lt;0) ? easeFactorY : 0.5
+&gt;offset.x += distort.x * easeFactorX
+&gt;offset.y += distort.y * easeFactorY
+&gt;''texcoord:''screen texcoord of current vertex
+&gt;''refractionX and refractionY:'' option values for refraction
 &gt;[img width=320 [file:.\Images\Distortion\Problem1.png]]
 &gt;
 !
-&gt;2.Unexpected distorted object.
-&gt;Solution:Use multiple cameras.
+&gt;''[Problem]''Unexpected distorted object.
+&gt;''[Solution]''Use multiple cameras.
 &gt;[img width=320 [file:.\Images\Distortion\Problem2.png]]</pre>
 </div>
 <div created="20160210020841088" creator="Shiro" modified="20160210020841298" modifier="Shiro" title="Draft of 'EffectType'">
@@ -7347,11 +7356,21 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 &gt;&lt;video width=&quot;320&quot; height=&quot;180&quot; src=&quot;file:.\Videos\Fog1.MOV&quot; controls&gt; &lt;/video&gt;
 &gt;&lt;video width=&quot;320&quot; height=&quot;180&quot; src=&quot;file:.\Videos\Fog2.MOV&quot; controls&gt; &lt;/video&gt;</pre>
 </div>
-<div created="20160210005116402" creator="Shiro" modified="20160331053356481" modifier="Shiro" tags="Title2" title="InvertedReflection">
-<pre>!!·Example
+<div created="20160210005116402" creator="Shiro" modified="20160413052505398" modifier="Shiro" tags="Title2" title="InvertedReflection">
+<pre>!!·Examples
+&gt;''1.Tokyo Xanadu''
 &gt;[img width=320 [file:.\Images\Examples\InvertedReflection.jpg]]
+&gt;Keys:Reflection mapping; Heat Distortion; 
+
+&lt;br&gt;
+
+&gt;''2.Senran Kagura''
+&gt;Keys:Reflection mapping; Waterlogged Distortion;
+
 !!·Related Research
-#&lt;font size=3&gt;Reflection mapping
+#&lt;font size=3&gt;Reflection Probe&lt;/font&gt;
+#&lt;font size=3&gt;Cube Map&lt;/font&gt;
+#&lt;font size=3&gt;Reflection mapping&lt;br&gt;
 https://en.wikipedia.org/wiki/Reflection_mapping</pre>
 </div>
 <div created="20160210005132578" creator="Shiro" modified="20160229082953499" modifier="Shiro" tags="Title2" title="LightEffect">
